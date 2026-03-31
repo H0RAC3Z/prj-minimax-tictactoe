@@ -164,7 +164,7 @@ public class Game {
             int[] move = botPlayer.minimax(gameBoard); // run minimax algorithm to find optimal move
 
             // display calculated game tree depth
-            System.out.println("The total total game tree depth is " + (this.gameTreeDepth + botPlayer.getPotentialGameTreeDepth()) + ".");
+            System.out.println("The potential game tree depth is " + (this.gameTreeDepth + botPlayer.getPotentialGameTreeDepth()) + ".");
 
             gameBoard.displayGameBoard(); // displays current state of game board
 
@@ -177,13 +177,10 @@ public class Game {
             this.gameTreeDepth++;
 
             // display where min has placed their marker
-            System.out.println("Min has placed their marker at row " + (move[0] + 1) + " col " + (move[1] + 1) + ".");
+            System.out.println(ANSI_RED + "Min" + ANSI_RESET + " has placed their marker at row " + (move[0] + 1) + " col " + (move[1] + 1) + ".");
 
             // display current game tree depth
             System.out.println("The current depth we are at in the game tree is " + this.gameTreeDepth + ".");
-
-            // display calculated game tree depth
-            System.out.println("The total total game tree depth is " + (this.gameTreeDepth + botPlayer.getPotentialGameTreeDepth()) + ".");
         } while((gameStatus = gameBoard.checkWin()) == -1);
 
         // determine the result of the game
@@ -210,12 +207,15 @@ public class Game {
             int row1 = move1[0];
             int col1 = move1[1];
 
+            // display calculated game tree depth
+            System.out.println("The potential game tree depth is " + (this.gameTreeDepth + maxBot.getPotentialGameTreeDepth()) + ".");
+
             // place marker at specified location
             gameBoard.placeMarker(row1, col1, maxBot.getMarker());
             this.gameTreeDepth++;
 
             // display what row and col max have placed their marker
-            System.out.println("Max has placed their marker at row " + (move1[0] + 1) + " col " + (move1[1] + 1) + ".");
+            System.out.println(ANSI_GREEN + "Max" + ANSI_RESET + " has placed their marker at row " + (move1[0] + 1) + " col " + (move1[1] + 1) + ".");
             gameBoard.displayGameBoard(); // displays current state of game board
 
             // check eventful move from bot1
@@ -224,8 +224,7 @@ public class Game {
             // get current depth of game tree
             System.out.println("The current depth we are at in the game tree is " + this.gameTreeDepth + ".");
 
-            // display calculated game tree depth
-            System.out.println("The total total game tree depth is " + (this.gameTreeDepth + maxBot.getPotentialGameTreeDepth()) + ".");
+            
 
             // allows for break to analyze bot vs bot
             System.out.println("Press enter to continue.");
@@ -246,16 +245,13 @@ public class Game {
             this.gameTreeDepth++;
 
             // display where min bot has placed their specified marker
-            System.out.println("Min has placed their marker at row " + (move2[0] + 1) + " col " + (move2[1] + 1) + ".");
+            System.out.println(ANSI_RED + "Min" + ANSI_RESET + " has placed their marker at row " + (move2[0] + 1) + " col " + (move2[1] + 1) + ".");
 
             // display game board
             gameBoard.displayGameBoard(); // displays current state of game board
 
             // get current depth of game tree
             System.out.println("The current depth we are at in the game tree is " + this.gameTreeDepth + ".");
-
-            // display calculated game tree depth
-            System.out.println("The total total game tree depth is " + (this.gameTreeDepth + minBot.getPotentialGameTreeDepth()) + ".");
 
             // allows for break to analyze bot vs bot
             System.out.println("Press enter to continue.");
