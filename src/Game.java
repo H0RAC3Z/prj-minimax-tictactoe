@@ -6,8 +6,8 @@ public class Game {
     private static final String ANSI_CYAN = "\u001B[36m";
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_GREEN = "\u001B[32m";
-    private static final char oMarker = 'o';
-    private static final char xMarker = 'x';
+    private static final char O_MARKER = 'o';
+    private static final char X_MARKER = 'x';
     private Scanner scan = new Scanner(System.in); // one scanner for reading all user inputs
     private int gameTreeDepth = 0;
 
@@ -127,8 +127,8 @@ public class Game {
 
         // variables needed for the human vs. ai game loop
         GameBoard gameBoard = new GameBoard();
-        Human humanPlayer = new Human(oMarker); // preseting human player as min's max for simplicity
-        Bot botPlayer = new Bot(xMarker);
+        Human humanPlayer = new Human(O_MARKER); // preseting human player as min's max for simplicity
+        Bot botPlayer = new Bot(X_MARKER);
         int gameStatus = -1;
 
         // human vs. ai game loop
@@ -193,8 +193,8 @@ public class Game {
     public void playAIAI() {
         System.out.println("Welcome to the ai vs. ai game loop.");
         GameBoard gameBoard = new GameBoard();
-        Bot maxBot = new Bot(oMarker);
-        Bot minBot = new Bot(xMarker);
+        Bot maxBot = new Bot(O_MARKER);
+        Bot minBot = new Bot(X_MARKER);
         int gameStatus = -1;
         do {
             /*
